@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Connect with SoundCloud</title>
+    <script src="http://connect.soundcloud.com/sdk-2.0.0.js"></script>
+
+</head>
+<body data-isOAuth-done="false">
+    <script>
+        ;(function(window) {
+            var SC_CLIENT_ID = '98e77c3e4da0cc49f2f8e58f278bb813'
+                , SC_CLIENT_SECRET = 'b8311d06a82a8c824b64b8a719479cda'
+                , SC_REDIRECT_URI = 'http://sc-redirect.herokuapp.com/callback.html';
+            SC.initialize({
+              client_id: SC_CLIENT_ID
+              , redirect_uri: SC_REDIRECT_URI
+            });
+            SC.connect(function() {
+              if ( SC.isConnected ) {
+                document.body.setAttribute('data-isOAuth-done', 'true');
+              }
+            });
+        })(window);
+    </script>
+</body>
+</html>
